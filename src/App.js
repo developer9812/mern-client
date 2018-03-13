@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {createStore} from 'redux';
+import {connect}  from 'react-redux';
+import reducers from './reducers';
+import * as actions from './actions/todos';
 import logo from './logo.svg';
 import TodoList from './components/TodoList';
 import './App.css';
@@ -56,7 +60,7 @@ class App extends Component {
   {
     let newTodo = {
       text: this.state.newTodo,
-      status: false
+      done: false
     }
     this.setState((prevState, props) => {
       return {
