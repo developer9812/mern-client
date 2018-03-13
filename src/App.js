@@ -12,11 +12,11 @@ class App extends Component {
       todos: [
         {
           text: 'Todo one',
-          status: true
+          done: true
         },
         {
           text: 'Todo two',
-          status: false
+          done: false
         }
       ],
       newTodo: '',
@@ -68,13 +68,8 @@ class App extends Component {
   changeTodoStatus(id, status)
   {
     var todos = this.state.todos;
-    var newTodos = todos.map(function(item) {
-      if(item.id === id) {
-        item.status = status;
-      }
-      return item;
-    });
-    this.setState({todos: newTodos});
+    todos[id].done = status;
+    this.setState({todos: todos});
   }
 
 }
